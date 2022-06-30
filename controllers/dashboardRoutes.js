@@ -32,10 +32,16 @@ router.get("/", (req, res) => {
     res.render("dashboard");
 });
 
-//GET method to edit the post
+//GET method to edit a post
 router.get("/edit", (req, res) => {
 
    res.render("editpost");
+});
+
+//GET method to add a post
+router.get("/addpost", (req, res) => {
+
+    res.render("addpost");
 })
 
 //Export router
