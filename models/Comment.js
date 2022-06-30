@@ -17,7 +17,7 @@ Comment.init (
         },
 
         //Create a text field for comment
-        text_comment: {
+        comment_text: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
