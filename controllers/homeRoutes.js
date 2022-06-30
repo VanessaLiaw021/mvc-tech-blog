@@ -6,12 +6,12 @@ router.get("/", (req, res) => {
     res.render("homepage");
 });
 
-//Get the routes to sign in
+//Get the routes to sign in page
 router.get("/signin", (req, res) => {
     res.render("signin");
 });
 
-//Get the routes to sign in
+//Get the routes to sign in page
 router.get("/signup", (req, res) => {
     res.render("signup");
 });
