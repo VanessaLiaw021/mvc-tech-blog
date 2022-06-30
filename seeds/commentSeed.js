@@ -14,7 +14,7 @@ const commentData = [
         post_id: 2
     },
     {
-        comment_text: "Nice work, now I know that CRUD operation is about",
+        comment_text: "Nice work, now I know that MVC operation is about",
         user_id: 3, 
         post_id: 3
     },
@@ -46,7 +46,7 @@ const commentData = [
 ];
 
 //Insert users into the database
-const seedComments = User.bulkCreate(commentData);
+const seedComments = Comment.bulkCreate(commentData);
 
 //Export the seeded comments
 module.exports = seedComments;
