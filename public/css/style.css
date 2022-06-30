@@ -61,7 +61,7 @@ input {
     border-radius: 5px;
 }
 
-button {
+.edit-button {
     width: 100%;
     border: none;
     padding: 10px;
@@ -115,5 +115,21 @@ textarea {
 
 .edit:hover {
     color: lightsteelblue;
+}
+
+.add {
+    margin-right: 20px;
+}
+
+.add-post {
+    padding: 10px;
+    border: none;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: lightsteelblue;
+}
+
+.add-post i {
+    padding: 0 5px;
 }
 /* End Dashboard Section */
