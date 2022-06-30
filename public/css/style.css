@@ -104,7 +104,16 @@ textarea {
     font-size: 40px;
  }
 
- .line {
-     margin: 0 70px;
- }
+.line {
+    margin: 0 70px;
+}
+
+.edit {
+    text-decoration: none;
+    color: black;
+}
+
+.edit:hover {
+    color: lightsteelblue;
+}
 /* End Dashboard Section */
