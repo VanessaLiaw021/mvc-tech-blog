@@ -97,3 +97,14 @@ textarea {
     margin: 15px 0;
 }
 /* End Form Section */
+
+/* Start Dashboard Section */
+.dashboard {
+    padding-left: 20px;
+    font-size: 40px;
+ }
+
+ .line {
+     margin: 0 70px;
+ }
+/* End Dashboard Section */
