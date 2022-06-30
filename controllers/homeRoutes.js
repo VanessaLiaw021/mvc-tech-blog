@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
 });
 
 //Get the routes to sign in
-router.get("/", (req, res) => {
+router.get("/signin", (req, res) => {
     res.render("signin");
 });
 
