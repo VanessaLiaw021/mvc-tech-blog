@@ -6,5 +6,10 @@ router.get("/", (req, res) => {
     res.render("homepage");
 });
 
+//Get the routes to sign in
+router.get("/", (req, res) => {
+    res.render("signin");
+});
+
 //Export router
 module.exports = router;
