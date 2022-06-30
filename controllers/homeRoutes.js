@@ -8,12 +8,12 @@ router.get("/", (req, res) => {
 
 //Get the routes to sign in
 router.get("/signin", (req, res) => {
-    res.render("signIn");
+    res.render("signin");
 });
 
 //Get the routes to sign in
 router.get("/signup", (req, res) => {
-    res.render("signUp");
+    res.render("signup");
 });
 
 //Export router
