@@ -1,7 +1,7 @@
 //Import required packages and files 
 const router = require("express").Router();
 
-router.get("/addcomments", (req, res) => {
+router.get("/", (req, res) => {
     res.render("comment");
 });
 
