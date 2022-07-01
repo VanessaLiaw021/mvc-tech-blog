@@ -1,27 +1,27 @@
 //Import required packages and files 
 const router = require("express").Router();
-const { Post } = require("../../models");
+const { Post, User } = require("../../models");
 
 //GET method to get all posts
 router.get("/", async (req, res) => {
 
     //Try to run the code inside
-    // try {
+    try {
 
-    //     //Get all the post
-    //     const allPost = await Post.findAll({
+        //Get all the post
+        const allPost = await Post.findAll({
+            include: [{model: User}]
+        });
 
-    //     });
+        //Return data in a json file
+        res.json(allPost);
 
-    //     //Return data in a json file
-    //     res.json(allPost);
+        //Catch error if any
+    }   catch (err) {
 
-    //     //Catch error if any
-    // }   catch (err) {
-
-    //     //Display error if any
-    //     res.json(err);
-    // }
+        //Display error if any
+        res.json(err);
+    }
 });
 
 //POST method to create a new post 
