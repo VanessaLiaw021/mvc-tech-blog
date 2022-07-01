@@ -9,8 +9,8 @@ router.get("/", async (req, res) => {
     try {
 
         //Get all comments
-        const displayAllComments = await Post.findAll({
-            include: [{model: User}, {model: Comment }]
+        const displayAllComments = await Comment.findAll({
+            include: [{model: User}, {model: Post }]
         });
 
         //Return data in a json file
@@ -22,6 +22,29 @@ router.get("/", async (req, res) => {
         //Display error if any
         res.json(err);
     }
+});
+
+//GET method to get all comments
+router.get("/:id", async (req, res) => {
+     
+    //Try to run the code inside
+    try {
+
+        //Get all the post
+        const specificComment = await Comment.findByPk(req.params.id, {
+            
+            include: [{ model: User}, { model: Post }]
+        });
+
+        //Return data in a json file
+        res.json(specificComment);
+
+        //Catch error if any
+    }   catch (err) {
+
+        //Display error if any
+        res.json(err);
+    };
 });
 
 //Export router
