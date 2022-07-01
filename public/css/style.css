@@ -39,11 +39,17 @@ nav a:hover {
 
 .card-header {
     background-color: #9CFFD9;
+    padding: 20px;
 }
 
 .card-header p {
     position: relative;
     top: 10px;
+}
+
+.card-body p {
+    position: relative;
+    top: 8px;
 }
 /* End Card Section */
 
