@@ -1,5 +1,5 @@
 //Add the post to the dashboard
-const addPostHandler = async (event) => {
+const deletePostHandler = async (event) => {
 
     //Prevent any default value from happening 
     event.preventDefault();
@@ -14,10 +14,13 @@ const addPostHandler = async (event) => {
         //Read from POST method 
         method: "DELETE",
         
+        //Convert data recieve to a string and display it on the page
         body: JSON.stringify({
             post_title, 
             post_text
         }),
+
+        //Indicate the request body format is json
         headers: {
             "Content-Type": "application/json"
         }
@@ -28,4 +31,4 @@ const addPostHandler = async (event) => {
 };
 
 //Grab the selector for button and call the function 
-document.querySelector("#create-post").addEventListener("click", addPostHandler);
+document.querySelector("#create-post").addEventListener("click", deletePostHandler);
