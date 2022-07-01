@@ -1,3 +1,9 @@
 <!--Blog Post Section-->
 <h2 class="dashboard m-5">Blog Posts</h2>
 <hr class="line">
+
+{{#each posts as |post|}}
+
+    {{> postinfo }}
+
+{{/each}}

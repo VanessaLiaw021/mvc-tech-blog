@@ -2,14 +2,11 @@
 <section class="blog-post d-flex flex-column m-5">
     <div class="card m-4">
         <div class="card-header d-flex justify-content-between">
-            <a href="/api/comments" class="edit"><h3>Blog post</h3></a>
-            <p>Posted by User on 5/20/2022</p>
+            <a href="/api/comments" class="edit"><h3>{{post_title}}</h3></a>
+            <p>Posted by {{user.username}} on 5/20/2022</p>
         </div>
         <div class="card-body">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt blanditiis officiis minus 
-                dolorem, nihil ad iure earum necessitatibus at quis veniam eveniet inventore modi labore. 
-                Magnam reprehenderit velit dolorum mollitia?
-            </p>
+            <p>{{post_text}}</p>
         </div>
     </div>
 </section>
