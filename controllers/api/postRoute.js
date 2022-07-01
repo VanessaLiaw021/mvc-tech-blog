@@ -47,5 +47,29 @@ router.post("/", async (req, res) => {
     }
 });
 
+//DELETE method to delete a post
+router.delete("/:id", async (req, res) => {
+
+    //Try to run the code inside 
+    try {
+
+        //Delete a post 
+        const deletePost = await Post.destroy({
+
+            //Look for the id that corresponds to the post and delete it
+            where: [{ id: req.params.id }]
+        });
+
+        //Return the data in a json file
+        res.json(deletePost);
+
+        //Catch erro if any
+    }   catch (err) {
+        
+        //Display error if any
+        res.json(err);
+    };
+});
+
 //Export router
 module.exports = router;
