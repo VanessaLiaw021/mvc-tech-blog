@@ -15,10 +15,7 @@ const editPostHandler = async (event) => {
         method: "POST",
         
         //Convert data recieve to a string and display it on the page
-        body: JSON.stringify({
-            post_title, 
-            post_text
-        }),
+        body: JSON.stringify({ post_title,  post_text }),
 
         //Indicate the request body format is json
         headers: { "Content-Type": "application/json" }
