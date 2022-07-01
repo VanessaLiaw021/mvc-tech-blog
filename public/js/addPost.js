@@ -1,4 +1,4 @@
-//
+//Add the post to the dashboard
 const addPostHandler = async (event) => {
 
     //Prevent any default value from happening 
@@ -11,7 +11,9 @@ const addPostHandler = async (event) => {
     //Send fetch request to add a new post 
     const postResponse = await fetch ("/api/posts", {
         
+        //Read from POST method 
         method: "POST",
+        
         body: JSON.stringify({
             post_title, 
             post_text
