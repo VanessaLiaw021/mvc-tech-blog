@@ -8,8 +8,27 @@ const serialize = (data) => JSON.parse(JSON.stringify(data));
 //GET method to display all posts
 router.get("/", async (req, res) => {
 
-   //Render the home page
-   res.render("homepage");
+    //Try to run the code inside
+    try {
+
+        //Get all posts to display on home page
+        const displayAllPost = await Post.findAll({
+
+            include: [{ model: User}]
+        });
+
+        //Serialize the data
+        const posts = serialize(displayAllPost);
+
+        //Render the home page
+        res.render("homepage", { posts });
+
+        //Catch error if any 
+    }   catch (err) {
+
+        //Display error if any 
+        res.json(err);
+    };
 });
 
 //Get the routes to sign in page
