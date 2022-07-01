@@ -1,5 +1,5 @@
 //Import Comment Model
-const { Comment } = require("../models/Comment");
+const { Comment } = require("../models");
 
 //Create a list of sample comment
 const commentData = [
@@ -46,7 +46,7 @@ const commentData = [
 ];
 
 //Insert users into the database
-const seedComments = Comment.bulkCreate(commentData);
+const seedComments = () => Comment.bulkCreate(commentData);
 
 //Export the seeded comments
 module.exports = seedComments;

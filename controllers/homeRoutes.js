@@ -1,8 +1,29 @@
 //Import required packages and files 
 const router = require("express").Router();
+const { Post, User, Comment } = require("../models");
 
-//Get the routes to homepage
-router.get("/", (req, res) => {
+//GET method to display all posts
+router.get("/", async (req, res) => {
+
+    //Find all post
+    const findPostData = await Post.findAll({
+
+        include: [
+            {
+                model: User, 
+                attributes: ["username"]
+            },
+            {
+                model: Comment,
+                attributes: ["id", "post_title", "post_text", "user_id"],
+                include: {
+                    model: "User",
+                    attributes: ["username"]
+                }
+            }
+        ]
+    });
+
     res.render("homepage");
 });
 

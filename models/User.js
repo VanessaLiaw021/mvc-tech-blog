@@ -1,6 +1,7 @@
 //Import required packages
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
+const bcrypt = require("bcrypt");
 
 //Initialize User model (table) by extending off Sequelize's Model Class
 class User extends Model {

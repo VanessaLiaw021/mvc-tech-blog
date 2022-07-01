@@ -1,9 +1,10 @@
 //Import User Model
-const { User } = require("../models/User");
+const { User } = require("../models");
 
 //Create a list of sample user
 const userData = [
     {
+        id: 1,
         username: "mattSawyer",
         password: "mattSawyer123"
     },
@@ -32,13 +33,13 @@ const userData = [
         password: "markAndrew123"
     },
     {
-        username: "aliceThompson",
-        passowrd: "aliceThompson123"
+        username: "alisonTate",
+        password: "alisonTate123"
     }
 ];
 
 //Insert users into the database
-const seedUsers = User.bulkCreate(userData);
+const seedUsers = () => User.bulkCreate(userData);
 
 //Export the seeded users
 module.exports = seedUsers;
