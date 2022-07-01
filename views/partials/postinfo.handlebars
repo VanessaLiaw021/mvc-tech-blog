@@ -3,7 +3,7 @@
     <div class="card m-4">
         <div class="card-header d-flex justify-content-between">
             <a href="/posts/{{id}}" class="edit"><h3>{{post_title}}</h3></a>
-            <p>Posted by {{user.username}} on 5/20/2022</p>
+            <p>Posted by {{user.username}} on {{format_date createdAt }}</p>
         </div>
         <div class="card-body">
             <p>{{post_text}}</p>
