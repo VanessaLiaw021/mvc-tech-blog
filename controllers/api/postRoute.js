@@ -47,6 +47,30 @@ router.post("/", async (req, res) => {
     }
 });
 
+//PUT method to update the post
+router.put("/:id", async (req, res) => {
+
+    //Try to run the code inside
+    try {
+
+        //Update the post 
+        const updatePost = await Post.update({
+
+            //Look for the id that corresponds to the post and update it
+            where: { id: req.params.id }
+        });
+
+        //Return the data in a json file 
+        res.json(updatePost);
+
+        //Catch error if any
+    }   catch (err) {
+
+        //Display error if any
+        res.json(err);
+    }
+});
+
 //DELETE method to delete a post
 router.delete("/:id", async (req, res) => {
 
