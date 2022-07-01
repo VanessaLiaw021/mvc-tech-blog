@@ -2,29 +2,14 @@
 const router = require("express").Router();
 const { Post, User, Comment } = require("../models");
 
+//Function to serialize the data
+const serialize = (data) => JSON.parse(JSON.stringify(data));
+
 //GET method to display all posts
 router.get("/", async (req, res) => {
 
-    //Find all post
-    const findPostData = await Post.findAll({
-
-        include: [
-            {
-                model: User, 
-                attributes: ["username"]
-            },
-            {
-                model: Comment,
-                attributes: ["id", "post_title", "post_text", "user_id"],
-                include: {
-                    model: "User",
-                    attributes: ["username"]
-                }
-            }
-        ]
-    });
-
-    res.render("homepage");
+   //Render the home page
+   res.render("homepage");
 });
 
 //Get the routes to sign in page
