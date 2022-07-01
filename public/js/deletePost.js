@@ -1,29 +1,14 @@
-//Add the post to the dashboard
+//Delete the post to the dashboard
 const deletePostHandler = async (event) => {
 
     //Prevent any default value from happening 
     event.preventDefault();
 
-    //Get the value of the text and title of blog post
-    const post_title = document.querySelector("#add-title").value;
-    const post_text = document.querySelector("#add-text").value;
-
     //Send fetch request to add a new post 
     const deleteResponse = await fetch (`/api/posts/${id}`, {
         
         //Read from POST method 
-        method: "DELETE",
-        
-        //Convert data recieve to a string and display it on the page
-        body: JSON.stringify({
-            post_title, 
-            post_text
-        }),
-
-        //Indicate the request body format is json
-        headers: {
-            "Content-Type": "application/json"
-        }
+        method: "DELETE"
     });
 
     //If the post is added, then the template will be re-rendered 
@@ -31,4 +16,4 @@ const deletePostHandler = async (event) => {
 };
 
 //Grab the selector for button and call the function 
-document.querySelector("#create-post").addEventListener("click", deletePostHandler);
+document.querySelector("#delete-post").addEventListener("click", deletePostHandler);

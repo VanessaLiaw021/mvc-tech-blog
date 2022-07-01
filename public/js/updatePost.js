@@ -1,5 +1,5 @@
-//Add the post to the dashboard
-const editPostHandler = async (event) => {
+//Update the post to the dashboard
+const addPostHandler = async (event) => {
 
     //Prevent any default value from happening 
     event.preventDefault();
@@ -9,10 +9,10 @@ const editPostHandler = async (event) => {
     const post_text = document.querySelector("#add-text").value;
 
     //Send fetch request to add a new post 
-    const createResponse = await fetch ("/api/posts", {
+    const updateResponse = await fetch (`/api/posts/${id}`, {
         
         //Read from POST method 
-        method: "POST",
+        method: "PUT",
         
         //Convert data recieve to a string and display it on the page
         body: JSON.stringify({
@@ -21,14 +21,12 @@ const editPostHandler = async (event) => {
         }),
 
         //Indicate the request body format is json
-        headers: {
-            "Content-Type": "application/json"
-        }
+        headers: { "Content-Type": "application/json" }
     });
 
     //If the post is added, then the template will be re-rendered 
-    createResponse.ok ? document.location.replace("/dashboard") : alert("Failed to add post");
+    updateResponse.ok ? document.location.replace("/dashboard") : alert("Failed to edit post");
 };
 
 //Grab the selector for button and call the function 
-document.querySelector("#create-post").addEventListener("click", editPostHandler);
+document.querySelector("#update-post").addEventListener("click", addPostHandler);
