@@ -4,22 +4,19 @@ const User = require("../../models/User");
 const withAuth = require("../../utils/auth");
 
 //POST method to create a new user 
-router.post("/", withAuth, async (req, res) => {
+router.post("/", async (req, res) => {
 
    //Try to run the code inside
    try {
 
       //Create a new user
       const createUser = await User.create({
-
          username: req.body.username,
          password: req.body.password
       });
 
       //Save the session the user created 
       req.session.save(() => {
-         req.session.user_id = req.body.id;
-         req.session.username = req.body.username;
          req.session.loggedIn = true;
       });
 
@@ -52,9 +49,34 @@ router.post("/signin", async (req, res) => {
       //Validate the password 
       if (!validatePassword) res.json({ message: "Incorrect username or password" });
 
-      //If the checkPassword is true, the user is now logged in 
-      res.json({ user: findUserData, message: "You are logged in!" });
+      //Save the session the user created 
+      req.session.save(() => {
 
+         //Set loggedIn status as true
+         req.session.loggedIn = true;
+
+         //If the checkPassword is true, the user is now logged in 
+         res.json({ user: findUserData, message: "You are logged in!" });
+
+      });
+
+      //Catch any error if any
+   }  catch (err) {
+
+      //Display error if any
+      res.json(err);
+   }
+});
+
+//POST method to logout user
+router.post("/signout", async (req, res) => {
+
+   //Try to run the code iniside 
+   try {
+
+      //If the session is logged in, destroy the sesssion and logout
+      if (req.session.loggedIn) req.session.destroy(() => res.end());
+      
       //Catch any error if any
    }  catch (err) {
 
