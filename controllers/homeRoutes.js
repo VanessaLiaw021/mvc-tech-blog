@@ -41,9 +41,11 @@ router.get("/signup", (req, res) => {
     res.render("signup");
 });
 
+//GET Method to route to the single posts with comments and adding a comment
 router.get("/posts/:id", async (req, res) => {
     
-    const singlePost = await Post.findByPk({ 
+    const singlePost = await Post.findOne({ 
+
         where: { id: req.params.id },
 
         include: [{ model: User}, { model: Comment }]
