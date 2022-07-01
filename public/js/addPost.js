@@ -9,7 +9,7 @@ const addPostHandler = async (event) => {
     const post_text = document.querySelector("#add-text").value;
 
     //Send fetch request to add a new post 
-    const postResponse = await fetch ("/api/posts", {
+    const createResponse = await fetch ("/api/posts", {
         
         //Read from POST method 
         method: "POST",
@@ -24,7 +24,7 @@ const addPostHandler = async (event) => {
     });
 
     //If the post is added, then the template will be re-rendered 
-    postResponse.ok ? document.location.replace("/dashboard") : alert("Failed to add post");
+    createResponse.ok ? document.location.replace("/dashboard") : alert("Failed to add post");
 };
 
 //Grab the selector for button and call the function 
