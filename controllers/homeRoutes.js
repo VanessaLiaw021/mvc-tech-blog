@@ -41,7 +41,7 @@ router.get("/signup", (req, res) => {
     res.render("signup");
 });
 
-router.get("/post/:id", async (req, res) => {
+router.get("/posts/:id", async (req, res) => {
     
     const singlePost = await Post.findByPk({ 
         where: { id: req.params.id },
