@@ -5,7 +5,7 @@ const editPostHandler = async (event) => {
     event.preventDefault();
 
     //Get the value of the text and title of blog post
-    const comment_text = document.querySelector("#add-title").value;
+    const comment_text = document.querySelector("#add-comment").value;
 
     //Send fetch request to add a new post 
     const createResponse = await fetch ("/api/comments", {

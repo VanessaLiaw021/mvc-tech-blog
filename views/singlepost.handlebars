@@ -1,12 +1,12 @@
 <!--Display the blog post that is clicked-->
 {{> postinfo }}
 
+{{ > commentinfo }}
+
 <!--Add the comment section-->
 <form class="comment-form">
-    <textarea></textarea>
+    <textarea id="add-comment"></textarea>
     <button>Add Comment</button>
 </form>
-
-{{ > commentinfo }}
 
 <script src="/js/comment.js"></script>
