@@ -41,5 +41,9 @@ router.get("/signup", (req, res) => {
     res.render("signup");
 });
 
+router.get("/posts/:id", (req, res) => {
+    res.render("singlepost");
+});
+
 //Export router
 module.exports = router;

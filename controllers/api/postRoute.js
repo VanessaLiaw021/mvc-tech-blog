@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
 
         //Display error if any
         res.json(err);
-    }
+    };
 });
 
 //GET method to get a single post
@@ -44,7 +44,7 @@ router.get("/:id", async (req, res) => {
 
         //Display error if any
         res.json(err);
-    }
+    };
 });
 
 //POST method to create a new post 
@@ -67,7 +67,7 @@ router.post("/", async (req, res) => {
 
         //Display error if any
         res.json(err);
-    }
+    };
 });
 
 //PUT method to update the post
@@ -91,7 +91,7 @@ router.put("/:id", async (req, res) => {
 
         //Display error if any
         res.json(err);
-    }
+    };
 });
 
 //DELETE method to delete a post
