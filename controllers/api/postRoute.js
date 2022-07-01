@@ -10,7 +10,27 @@ router.get("/", async (req, res) => {
 
         //Get all the post
         const allPost = await Post.findAll({
-            include: [{model: User}, {model: Comment }]
+
+            //Get the attributes from the post table 
+            attributes: ["id", "post_text", "post_title", "createdAt"],  
+
+            //Order the post from most recent
+            order: [[ "createAt", "DESC" ]],
+
+            //Include the User and Comment model when getting all the post
+            include: [
+                { 
+                    //User model and attributes to include
+                    model: User,
+                    attributes: ["username"]
+                }, 
+                { 
+                    //Comment model to include the user model, and attributes to include
+                    model: Comment,
+                    attributes: ["id", "comment_text", "post_id", "user_id", "createdAt"],
+                    include: [{ model: User, attributes: ["username"]}] 
+                }
+            ]
         });
 
         //Return data in a json file
@@ -32,8 +52,27 @@ router.get("/:id", async (req, res) => {
 
         //Get all the post
         const allPost = await Post.findByPk(req.params.id, {
+
+            //Attributes to include from the post table
+            attributes: ["id", "post_text", "post_title", "createdAt"],  
             
-            include: [{ model: User}, { model: Comment }]
+            //Order the post from most recent
+            order: [[ "createAt", "DESC" ]],
+
+            //Include the User and Comment model when getting all the post
+            include: [
+                { 
+                    //User model and attributes to include
+                    model: User,
+                    attributes: ["username"]
+                }, 
+                { 
+                    //Comment model to include the user model, and attributes to include
+                    model: Comment,
+                    attributes: ["id", "comment_text", "post_id", "user_id", "createdAt"],
+                    include: [{ model: User, attributes: ["username"]}] 
+                }
+            ]
         });
 
         //Return data in a json file
