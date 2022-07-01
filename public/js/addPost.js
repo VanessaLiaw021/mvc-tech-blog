@@ -21,9 +21,7 @@ const editPostHandler = async (event) => {
         }),
 
         //Indicate the request body format is json
-        headers: {
-            "Content-Type": "application/json"
-        }
+        headers: { "Content-Type": "application/json" }
     });
 
     //If the post is added, then the template will be re-rendered 
