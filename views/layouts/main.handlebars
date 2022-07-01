@@ -21,10 +21,10 @@
         <nav class="d-flex justify-content-center aligns-item-center">
             <a href="/">Home</a>
             <a href="/dashboard">Dashboard</a>
-            <a href="/signin">Sign In</a>
-            <a href="/signup">Sign Up</a>
+            <a href="/signin" id="sign-in">Sign In</a>
+            <a href="/signup" id="sign-up">Sign Up</a>
             {{#if loggedIn}}
-            <a href="">Sign Out</a>
+            <a href="/signout" id="sign-out">Sign Out</a>
             {{/if}}
         </nav>
     </header>

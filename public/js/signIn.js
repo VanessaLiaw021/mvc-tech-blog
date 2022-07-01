@@ -4,14 +4,14 @@ const signInFormHandler = async (event) => {
     //Prevent default action from happening 
     event.preventDefault();
 
-    //Get the value of the username and password 
-    const username = document.querySelector("#signin-username").value;
-    const password = document.querySelector("#signin-password").value;
-
     //Try to run the code inside 
     try {
 
-        //Read the fetch request in controller folder
+        //Get the value of the username and password 
+        const username = document.querySelector("#signin-username").value;
+        const password = document.querySelector("#signin-password").value;
+
+        //Read the fetch request 
         const createResponse = await fetch("/api/users/signin", {
 
             //Read from POST method 
@@ -20,7 +20,7 @@ const signInFormHandler = async (event) => {
             //Convert data recieve to a string and display it on the page
             body: JSON.stringify({ username, password }),
 
-             //Indicate the request body format is json
+            //Indicate the request body format is json
             headers: { "Content-Type": "application/json" }
         });
 
@@ -34,3 +34,6 @@ const signInFormHandler = async (event) => {
         res.json(err);
     };
 };
+
+//Grab the selector for button and call the function 
+document.querySelector("#sign-in").addEventListener("click", signOutFormHandler);
