@@ -24,7 +24,7 @@ router.get("/", async (req, res) => {
     }
 });
 
-//GET method to get all comments
+//GET method to get a single comments
 router.get("/:id", async (req, res) => {
      
     //Try to run the code inside
@@ -38,6 +38,30 @@ router.get("/:id", async (req, res) => {
 
         //Return data in a json file
         res.json(specificComment);
+
+        //Catch error if any
+    }   catch (err) {
+
+        //Display error if any
+        res.json(err);
+    };
+});
+
+//POST method to create a comment 
+router.post("/", async (req, res) => {
+
+    //Try to run the code inside
+    try {
+
+        //Update the post 
+        const createComment = await Comment.update({
+
+            //Look for the id that corresponds to the post and update it
+            where: { id: req.params.id }
+        });
+
+        //Return the data in a json file 
+        res.json(createComment);
 
         //Catch error if any
     }   catch (err) {
