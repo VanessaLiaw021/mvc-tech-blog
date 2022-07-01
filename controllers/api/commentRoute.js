@@ -1,6 +1,7 @@
 //Import required packages and files 
 const router = require("express").Router();
 const {User, Post, Comment } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 //GET method to get all comments
 router.get("/", async (req, res) => {
@@ -48,7 +49,7 @@ router.get("/:id", async (req, res) => {
 });
 
 //POST method to create a comment 
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
 
     //Try to run the code inside
     try {
