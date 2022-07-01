@@ -1,6 +1,7 @@
 //Import required packages and files 
 const router = require("express").Router();
 const { Post, User, Comment } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 //GET method to get all posts
 router.get("/", async (req, res) => {
@@ -85,7 +86,7 @@ router.get("/:id", async (req, res) => {
 });
 
 //POST method to create a new post 
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
 
     //Try to run the code inside
     try {
@@ -108,7 +109,7 @@ router.post("/", async (req, res) => {
 });
 
 //PUT method to update the post
-router.put("/:id", async (req, res) => {
+router.put("/:id", withAuth, async (req, res) => {
 
     //Try to run the code inside
     try {
@@ -132,7 +133,7 @@ router.put("/:id", async (req, res) => {
 });
 
 //DELETE method to delete a post
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
 
     //Try to run the code inside 
     try {
