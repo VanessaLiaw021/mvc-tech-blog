@@ -23,7 +23,7 @@ const editPostHandler = async (event) => {
     });
 
     //If the post is added, then the template will be re-rendered 
-    createResponse.ok ? document.location.reload() : alert("Failed to add post");
+    createResponse.ok ? document.location.reload() : alert("Failed to add comment");
 };
 
 //Grab the selector for button and call the function 

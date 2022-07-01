@@ -41,8 +41,17 @@ router.get("/signup", (req, res) => {
     res.render("signup");
 });
 
-router.get("/posts/:id", (req, res) => {
-    res.render("singlepost");
+router.get("/post/:id", async (req, res) => {
+    
+    const singlePost = await Post.findByPk({ 
+        where: { id: req.params.id },
+
+        include: [{ model: User}, { model: Comment }]
+    });
+
+    const post = serialize(singlePost);
+
+    res.render("singlepost", { post });
 });
 
 //Export router
