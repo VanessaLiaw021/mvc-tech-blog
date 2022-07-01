@@ -1,19 +1,15 @@
-
+<!--Comment Section-->
 <div class="comments d-flex justify-content-center">
     <div class="card m-4 w-50">
         <div class="card-header">
             <h3>Comments</h3>
         </div>
         <div class="card-body">
-            <p>Awesome blog post</p>
-            <p class="posted">~ Posted by User on 5/20/2022</p>
+            {{#each comments as |comment|}}
+            <p>{{comment_text}}</p>
+            <p class="posted">~ Posted by {{user.username}} on 5/20/2022</p>
             <hr>
-            <p>Awesome blog post</p>
-            <p class="posted">~ Posted by User on 5/20/2022</p>
-            <hr>
-            <p>Awesome blog post</p>
-            <p class="posted">~ Posted by User on 5/20/2022</p>
-            <hr>
+            {{/each}}
         </div>
     </div>
 </div>
