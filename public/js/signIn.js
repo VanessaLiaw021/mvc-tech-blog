@@ -11,21 +11,25 @@ const signInFormHandler = async (event) => {
         const username = document.querySelector("#signin-username").value;
         const password = document.querySelector("#signin-password").value;
 
-        //Read the fetch request 
-        const createResponse = await fetch("/api/users/signin", {
+        //Check to see if the credntial are true and matches, then fetch the request
+        if (username && password) {
 
-            //Read from POST method 
-            method: "POST",
+            //Read the fetch request 
+            const signInResponse = await fetch("/api/users/signin", {
 
-            //Convert data recieve to a string and display it on the page
-            body: JSON.stringify({ username, password }),
+                //Read from POST method 
+                method: "POST",
 
-            //Indicate the request body format is json
-            headers: { "Content-Type": "application/json" }
-        });
+                //Convert data recieve to a string and display it on the page
+                body: JSON.stringify({ username, password }),
 
-        //If the signin is correct, then the template will be re-rendered to dashboard
-        createResponse.ok ? document.location.redirect("/dashboard") : alert("Failed to sign in. Try again");
+                //Indicate the request body format is json
+                headers: { "Content-Type": "application/json" }
+            });
+
+            //If the signin is correct, then the template will be re-rendered to dashboard
+            signInResponse.ok ? document.location.redirect("/dashboard") : alert("Failed to sign in. Try again");
+        };
 
         //Catch error if any
     }   catch (err) {
