@@ -1,6 +1,9 @@
 //Handle the sign in form 
 const signInFormHandler = async (event) => {
 
+    //Prevent default action from happening 
+    event.preventDefault();
+
     //Get the value of the username and password 
     const username = document.querySelector("#signin-username").value;
     const password = document.querySelector("#signin-password").value;

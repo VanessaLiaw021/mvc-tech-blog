@@ -1,7 +1,7 @@
 //Add the post to the dashboard
 const editPostHandler = async (event) => {
 
-    //Prevent any default value from happening 
+    //Prevent any default action from happening 
     event.preventDefault();
 
     //Get the value of the text and title of blog post
