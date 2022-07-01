@@ -4,9 +4,31 @@
 {{> commentinfo}}
 
 <!--Add the comment section-->
-<form class="comment-form">
-    <textarea id="add-comment"></textarea>
-    <button>Add Comment</button>
-</form>
+<section class="sign-in d-flex justify-content-center aligns-item-center">
+    <div class="card m-5 w-100">
+
+        <!--Heading-->
+        <div class="card-header">
+            <h3>Add Comments</h3>
+        </div>
+
+        <!--Form-->
+        <div class="card-body">
+            <form>
+
+                <!--Comment Section-->
+                <div class="form-group d-flex flex-column m-2">
+                    <label>Comment: </label>
+                    <textarea></textarea>
+                </div>
+
+                <!--Sign Up Button-->
+                <div class="form-group text-center m-2">
+                    <button class="edit-button">Create Comment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
 
 <script src="/js/comment.js"></script>
