@@ -2,9 +2,10 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { User, Post, Comment } = require("../models");
+const withAuth = require("../utils/auth");
 
 //GET method to get all post by the user that is login
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
 
     //Try to run the code inside 
    //  try {
@@ -33,13 +34,13 @@ router.get("/", (req, res) => {
 });
 
 //GET method to edit a post
-router.get("/edit", (req, res) => {
+router.get("/edit", withAuth, (req, res) => {
 
    res.render("editpost");
 });
 
 //GET method to add a post
-router.get("/addpost", (req, res) => {
+router.get("/addpost", withAuth, (req, res) => {
 
     res.render("addpost");
 })

@@ -1,9 +1,10 @@
 //Import required packages and files 
 const router = require("express").Router();
 const User = require("../../models/User");
+const withAuth = require("../../utils/auth");
 
 //POST method to create a new user 
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
 
    //Try to run the code inside
    try {
@@ -13,6 +14,13 @@ router.post("/", async (req, res) => {
 
          username: req.body.username,
          password: req.body.password
+      });
+
+      //Save the session the user created 
+      req.session.save(() => {
+         req.session.user_id = req.body.id;
+         req.session.username = req.body.username;
+         req.session.loggedIn = true;
       });
 
       //Return the data of the new user 
@@ -27,22 +35,32 @@ router.post("/", async (req, res) => {
 });
 
 //POST method to login the user into the applicatin
-router.post("/login", async (req, res) => {
+router.post("/signin", async (req, res) => {
 
-   //Find the user in the database that matches the one the user inputted in the field
-   const findUserData = await User.findOne({ where: { username: req.body.username }});
+   //Try to run the code inside
+   try {
 
-   //If the username don't match display the error message
-   if (!findUserData) res.json({ message: "Incorrect username or password" });
+      //Find the user in the database that matches the one the user inputted in the field
+      const findUserData = await User.findOne({ where: { username: req.body.username }});
 
-   //Verify the password 
-   const validatePassword = await findUserData.checkPassword(req.body.password);
+      //If the username don't match display the error message
+      if (!findUserData) res.json({ message: "Incorrect username or password" });
 
-   //Validate the password 
-   if (!validatePassword) res.json({ message: "Incorrect username or password" });
+      //Verify the password 
+      const validatePassword = await findUserData.checkPassword(req.body.password);
 
-   //If the checkPassword is true, the user is now logged in 
-   res.json({ user: findUserData, message: "You are logged in!" });
+      //Validate the password 
+      if (!validatePassword) res.json({ message: "Incorrect username or password" });
+
+      //If the checkPassword is true, the user is now logged in 
+      res.json({ user: findUserData, message: "You are logged in!" });
+
+      //Catch any error if any
+   }  catch (err) {
+
+      //Display error if any
+      res.json(err);
+   }
 });
 
 //Export router
