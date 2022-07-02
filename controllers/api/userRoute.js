@@ -56,8 +56,11 @@ router.post("/signin", async (req, res) => {
       //Save the session the user created 
       req.session.save(() => {
 
-         //Find the user id
+         //Save the user session id 
          req.session.user_id = findUserData.id;
+
+         //Save the user session username
+         req.session.username = findUserData.username;
 
          //Set loggedIn status as true
          req.session.loggedIn = true;
