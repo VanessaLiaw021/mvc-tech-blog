@@ -64,7 +64,7 @@ router.get("/edit/:id", withAuth, async (req, res) => {
 //GET method to add a post
 router.get("/addpost", withAuth, (req, res) => {
 
-    res.render("addpost");
+  res.render("addpost");
 })
 
 //Export router

@@ -40,4 +40,4 @@ const signInFormHandler = async (event) => {
 };
 
 //Grab the selector for button and call the function 
-document.querySelector("#sign-in").addEventListener("click", signOutFormHandler);
+document.querySelector("#sign-in").addEventListener("submit", signInFormHandler);
