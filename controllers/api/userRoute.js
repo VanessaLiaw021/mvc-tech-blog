@@ -42,13 +42,13 @@ router.post("/signin", async (req, res) => {
    try {
 
       //Find the user in the database that matches the one the user inputted in the field
-      const findUserData = await User.findOne({ where: { username: req.body.username }});
+      const findUser = await User.findOne({ where: { username: req.body.username }});
 
       //If the username don't match display the error message
-      if (!findUserData) res.json({ message: "Incorrect username or password. Please try again!" });
+      if (!findUser) res.json({ message: "Incorrect username or password. Please try again!" });
 
       //Verify the password 
-      const validatePassword = await findUserData.checkPassword(req.body.password);
+      const validatePassword = await findUser.checkPassword(req.body.password);
 
       //Validate the password 
       if (!validatePassword) res.json({ message: "Incorrect username or password. Please try again!" });
@@ -56,18 +56,14 @@ router.post("/signin", async (req, res) => {
       //Save the session the user created 
       req.session.save(() => {
 
-         //Save the user session id 
-         req.session.user_id = findUserData.id;
-
-         //Save the user session username
-         req.session.username = findUserData.username;
+         //Login the user with the id 
+         req.session.user_id = findUser.id,
 
          //Set loggedIn status as true
          req.session.loggedIn = true;
 
          //If the checkPassword is true, the user is now logged in 
-         res.json({ user: findUserData, message: "You are logged in!" });
-
+         res.json({ user: findUser, message: "You are logged in!" });
       });
 
       //Catch any error if any

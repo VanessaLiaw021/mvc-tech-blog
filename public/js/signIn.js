@@ -8,8 +8,8 @@ const signInFormHandler = async (event) => {
     try {
 
         //Get the value of the username and password 
-        const username = document.querySelector("#signin-username").value;
-        const password = document.querySelector("#signin-password").value;
+        const username = document.querySelector("#signin-username").value.trim();
+        const password = document.querySelector("#signin-password").value.trim();
 
         //Check to see if the credntial are true and matches, then fetch the request
         if (username && password) {

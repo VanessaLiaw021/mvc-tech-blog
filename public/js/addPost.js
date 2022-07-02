@@ -5,8 +5,8 @@ const addPostHandler = async (event) => {
     event.preventDefault();
 
     //Get the value of the text and title of blog post
-    const post_title = document.querySelector("#add-title").value;
-    const post_text = document.querySelector("#add-text").value;
+    const post_title = document.querySelector("#add-title").value.trim();
+    const post_text = document.querySelector("#add-text").value.trim();
 
     //Send fetch request to add a new post 
     const createResponse = await fetch ("/api/posts", {
