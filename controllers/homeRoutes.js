@@ -22,7 +22,7 @@ router.get("/", async (req, res) => {
         const posts = serialize(displayAllPost);
 
         //Render the home page
-        res.render("homepage", { posts });
+        res.render("homepage", { posts, loggedIn: req.session.loggedIn });
 
         //Catch error if any 
     }   catch (err) {
@@ -34,17 +34,28 @@ router.get("/", async (req, res) => {
 
 //Get the routes to sign in page
 router.get("/signin", (req, res) => {
+
+    //Check to see if the session if loggedIn
+    if (req.session.loggedIn) res.redirect("/dashboard");
+
+    //Render to signin page 
     res.render("signin");
 });
 
 //Get the routes to sign in page
 router.get("/signup", (req, res) => {
+
+    //Check to if the user signUp successfully, make it true
+    if (req.session.loggedIn) res.redirect("/dashboard");
+
+    //Render to signup page
     res.render("signup");
 });
 
 //GET Method to route to the single posts with comments and adding a comment
 router.get("/posts/:id", async (req, res) => {
     
+    //Get the id of that post and display it on another page
     const singlePost = await Post.findOne({ 
 
         where: { id: req.params.id },
@@ -52,9 +63,11 @@ router.get("/posts/:id", async (req, res) => {
         include: [{ model: User}, { model: Comment }]
     });
 
+    //Serialize the data
     const post = serialize(singlePost);
 
-    res.render("singlepost", { post });
+    //Render to the singlepost 
+    res.render("singlepost", { post, loggedIn: req.session.loggedIn });
 });
 
 //Export router

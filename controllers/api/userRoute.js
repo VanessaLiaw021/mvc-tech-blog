@@ -17,11 +17,13 @@ router.post("/", async (req, res) => {
 
       //Save the session the user created 
       req.session.save(() => {
-         req.session.loggedIn = true;
-      });
 
-      //Return the data of the new user 
-      res.json(createUser);
+         //Set loggedIn status as true
+         req.session.loggedIn = true;
+
+         //Return the data of the new user 
+         res.json(createUser);
+      });
 
       //Catch any error if any 
    }  catch (err) {
