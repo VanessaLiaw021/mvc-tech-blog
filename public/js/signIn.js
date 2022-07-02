@@ -28,7 +28,7 @@ const signInFormHandler = async (event) => {
             });
 
             //If the signin is correct, then the template will be re-rendered to dashboard
-            signInResponse.ok ? document.location.redirect("/dashboard") : alert("Failed to sign in. Try again");
+            signInResponse.ok ? document.location.replace("/dashboard") : alert("Failed to sign in. Try again");
         };
 
         //Catch error if any

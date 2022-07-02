@@ -15,7 +15,7 @@ const signOutFormHandler = async () => {
         });
 
         //If the signout is correct, then the template will be re-rendered to dashboard
-        signOutResponse.ok ? document.location.redirect("/") : alert("Failed to logout");
+        signOutResponse.ok ? document.location.replace("/") : alert("Failed to logout");
 
         //Catch error if any
     }   catch (err) {
