@@ -17,16 +17,16 @@ router.get("/", withAuth, async (req, res) => {
       const postData = await Post.findAll( {
 
         //Find the user post based on the user login id 
-        where: { user_id: req.params.user_id },
+        where: { user_id: req.session.user_id },
 
         //Attributes to include in the edit post data
-        atttributes: ["id", "post_title", "post_text", "createdAt"],
+        atttributes: ["id", "post_title", "post_text", "created_at"],
 
         //Include the model that need to be on the post
         include: [
           { 
             model: Comment,
-            attributes: ["id", "comment_text", "post_id", "user_id", "createdAt"],
+            attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
             include: [{ model: User, attributes: ["username"]}]
           }, 
           { model: User, attributes: ["username"] }
@@ -54,7 +54,7 @@ router.get("/edit/:id", withAuth, async (req, res) => {
     const editPost = await Post.findOne({
 
         //Find the id with the correspond that is clicked
-        where: { id: req.params.id },
+        where: { user_id: req.session.user_id },
 
         //Include the model to edit
         include: [
@@ -77,7 +77,7 @@ router.get("/edit/:id", withAuth, async (req, res) => {
 //GET method to add a post
 router.get("/addpost", withAuth, (req, res) => {
 
-  res.render("addpost");
+  res.render("addpost", { loggedIn: req.session.loggedIn});
 })
 
 //Export router
