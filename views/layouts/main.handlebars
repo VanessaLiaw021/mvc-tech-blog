@@ -21,10 +21,11 @@
         <nav class="d-flex justify-content-center aligns-item-center">
             <a href="/">Home</a>
             <a href="/dashboard">Dashboard</a>
-            <a href="/signin" id="sign-in">Sign In</a>
-            <a href="/signup" id="sign-up">Sign Up</a>
             {{#if loggedIn}}
             <a href="/signout" id="sign-out">Sign Out</a>
+            {{else}}
+            <a href="/signin" id="sign-in">Sign In</a>
+            <a href="/signup" id="sign-up">Sign Up</a>
             {{/if}}
         </nav>
     </header>
@@ -35,3 +36,7 @@
     </main>
 </body>
 </html>
+
+{{#if loggedIn}}
+<script src="/js/signOut.js"></script>
+{{/if}}

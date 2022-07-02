@@ -7,10 +7,13 @@
 <hr class="line">
 
 <section class="blog-post d-flex flex-column m-5">
+    {{#each posts as |post|}}
     <div class="card m-4">
         <div class="card-header d-flex justify-content-between">
-            <a href="/dashboard/edit" class="edit"><h3>Blog post</h3></a>
-            <p>Posted by User on 5/20/2022</p>
+            {{> postinfo post}}
+            <a href="/dashboard/edit/{{post.id}}" class="edit"><h3>Blog post</h3></a>
+            <p>{{format_date post.createAt}}</p>
         </div>
     </div>
+    {{/each}}
 </section>

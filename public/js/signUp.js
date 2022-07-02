@@ -40,4 +40,4 @@ const signUpFormHandler = async (event) => {
 };
 
 //Grab the selector for button and call the function 
-document.querySelector("#sign-up").addEventListener("submit", signUpFormHandler);
+document.querySelector("#sign-up-form").addEventListener("submit", signUpFormHandler);

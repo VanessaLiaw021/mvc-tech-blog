@@ -1,5 +1,5 @@
 //Add the post to the dashboard
-const editPostHandler = async (event) => {
+const addPostHandler = async (event) => {
 
     //Prevent any default value from happening 
     event.preventDefault();
@@ -26,4 +26,4 @@ const editPostHandler = async (event) => {
 };
 
 //Grab the selector for button and call the function 
-document.querySelector("#create-post").addEventListener("click", editPostHandler);
+document.querySelector("#add-post-form").addEventListener("submit", addPostHandler);
