@@ -1,7 +1,6 @@
 //Import required packages and files 
 const router = require("express").Router();
 const User = require("../../models/User");
-const withAuth = require("../../utils/auth");
 
 //POST method to create a new user 
 router.post("/", async (req, res) => {
@@ -17,6 +16,9 @@ router.post("/", async (req, res) => {
 
       //Save the session the user created 
       req.session.save(() => {
+
+         //Create a user id for new user
+         req.session.user_id = createUser.id,
 
          //Set loggedIn status as true
          req.session.loggedIn = true;
@@ -43,16 +45,19 @@ router.post("/signin", async (req, res) => {
       const findUserData = await User.findOne({ where: { username: req.body.username }});
 
       //If the username don't match display the error message
-      if (!findUserData) res.json({ message: "Incorrect username or password" });
+      if (!findUserData) res.json({ message: "Incorrect username or password. Please try again!" });
 
       //Verify the password 
       const validatePassword = await findUserData.checkPassword(req.body.password);
 
       //Validate the password 
-      if (!validatePassword) res.json({ message: "Incorrect username or password" });
+      if (!validatePassword) res.json({ message: "Incorrect username or password. Please try again!" });
 
       //Save the session the user created 
       req.session.save(() => {
+
+         //Find the user id
+         req.session.user_id = findUserData.id;
 
          //Set loggedIn status as true
          req.session.loggedIn = true;
@@ -77,7 +82,7 @@ router.post("/signout", async (req, res) => {
    try {
 
       //If the session is logged in, destroy the sesssion and logout
-      if (req.session.loggedIn) req.session.destroy(() => res.end());
+      req.session.loggedIn ? req.session.destroy(() => res.end()) : res.end();
       
       //Catch any error if any
    }  catch (err) {
