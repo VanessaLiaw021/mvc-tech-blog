@@ -4,38 +4,28 @@ const signInFormHandler = async (event) => {
     //Prevent default action from happening 
     event.preventDefault();
 
-    //Try to run the code inside 
-    try {
+    //Get the value of the username and password 
+    const username = document.querySelector("#signin-username").value.trim();
+    const password = document.querySelector("#signin-password").value.trim();
 
-        //Get the value of the username and password 
-        const username = document.querySelector("#signin-username").value.trim();
-        const password = document.querySelector("#signin-password").value.trim();
+    //Check to see if the credntial are true and matches, then fetch the request
+    if (username && password) {
 
-        //Check to see if the credntial are true and matches, then fetch the request
-        if (username && password) {
+        //Read the fetch request 
+        const signInResponse = await fetch("/api/users/signin", {
 
-            //Read the fetch request 
-            const signInResponse = await fetch("/api/users/signin", {
+            //Read from POST method 
+            method: "POST",
 
-                //Read from POST method 
-                method: "POST",
+            //Convert data recieve to a string and display it on the page
+            body: JSON.stringify({ username, password }),
 
-                //Convert data recieve to a string and display it on the page
-                body: JSON.stringify({ username, password }),
+            //Indicate the request body format is json
+            headers: { "Content-Type": "application/json" }
+        });
 
-                //Indicate the request body format is json
-                headers: { "Content-Type": "application/json" }
-            });
-
-            //If the signin is correct, then the template will be re-rendered to dashboard
-            signInResponse.ok ? document.location.replace("/dashboard") : alert("Failed to sign in. Try again");
-        };
-
-        //Catch error if any
-    }   catch (err) {
-
-        //Display error if any
-        res.json(err);
+        //If the signin is correct, then the template will be re-rendered to dashboard
+        signInResponse.ok ? document.location.replace("/dashboard") : alert("Failed to sign in. Try again");
     };
 };
 
