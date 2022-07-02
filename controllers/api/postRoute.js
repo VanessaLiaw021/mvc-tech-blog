@@ -141,7 +141,7 @@ router.delete("/:id", withAuth, async (req, res) => {
         const deletePost = await Post.destroy({
 
             //Look for the id that corresponds to the post and delete it
-            where: [{ id: req.params.id }]
+            where: [{ id: req.params.id, user_id: req.session.user_id }]
         });
 
         //Return the data in a json file
