@@ -54,7 +54,7 @@ router.get("/:id", async (req, res) => {
         const allPost = await Post.findByPk(req.params.id, {
 
             //Attributes to include from the post table
-            attributes: ["id", "post_text", "post_title"],  
+            //attributes: ["id", "post_text", "post_title"],  
             
             //Order the post from most recent
 
@@ -68,7 +68,6 @@ router.get("/:id", async (req, res) => {
                 { 
                     //Comment model to include the user model, and attributes to include
                     model: Comment,
-                    attributes: ["id", "comment_text", "post_id", "user_id"],
                     include: [{ model: User, attributes: ["username"]}] 
                 }
             ]

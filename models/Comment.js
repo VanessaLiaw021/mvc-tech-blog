@@ -48,7 +48,6 @@ Comment.init (
     {
         //Create rules for Comment Model
         sequelize,
-        timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: "comment"
