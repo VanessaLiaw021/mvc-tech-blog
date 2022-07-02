@@ -5,7 +5,10 @@ const editPostHandler = async (event) => {
     event.preventDefault();
 
     //Get the value of the text and title of blog post
-    const comment_text = document.querySelector("#add-comment").value.trim();
+    const comment_text = document.querySelector("#comment-text").value.trim();
+
+    //Giving us access to the URL.
+    const post_id = window.location.toString().split("/")[window.location.toString().split("/").length - 1]
 
     //Send fetch request to add a new post 
     const createResponse = await fetch ("/api/comments", {
@@ -14,7 +17,7 @@ const editPostHandler = async (event) => {
         method: "POST",
         
         //Convert data recieve to a string and display it on the page
-        body: JSON.stringify({ comment_text }),
+        body: JSON.stringify({ comment_text, post_id }),
 
         //Indicate the request body format is json
         headers: { "Content-Type": "application/json" }

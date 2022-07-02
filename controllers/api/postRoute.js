@@ -93,7 +93,8 @@ router.post("/", withAuth, async (req, res) => {
         //Create a new post 
         const createPost = await Post.create({
             post_title: req.body.post_title,
-            post_text: req.body.post_text
+            post_text: req.body.post_text,
+            user_id: req.session.user_id
         });
 
         //Return the data in a json file

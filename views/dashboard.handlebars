@@ -9,10 +9,10 @@
 <section class="blog-post d-flex flex-column m-5">
     {{#each posts as |post|}}
     <div class="card m-4">
+        {{> postinfo post}}
         <div class="card-header d-flex justify-content-between">
-            {{> postinfo post}}
-            <a href="/dashboard/edit/{{post.id}}" class="edit"><h3>Blog post</h3></a>
-            <p>{{format_date post.createdAt}}</p>
+            <a href="/dashboard/edit/{{post.id}}" class="edit"><h3>{{post.post_title}}</h3></a>
+            <p>Created on {{format_date post.createdAt}}</p>
         </div>
     </div>
     {{/each}}
