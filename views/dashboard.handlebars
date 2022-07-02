@@ -12,7 +12,7 @@
         <div class="card-header d-flex justify-content-between">
             {{> postinfo post}}
             <a href="/dashboard/edit/{{post.id}}" class="edit"><h3>Blog post</h3></a>
-            <p>{{format_date post.createAt}}</p>
+            <p>{{format_date post.createdAt}}</p>
         </div>
     </div>
     {{/each}}
