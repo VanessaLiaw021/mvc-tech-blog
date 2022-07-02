@@ -25,4 +25,4 @@ const editPostHandler = async (event) => {
 };
 
 //Grab the selector for button and call the function 
-document.querySelector("#add-comment-form").addEventListener("click", editPostHandler);
+document.querySelector("#add-comment-form").addEventListener("submit", editPostHandler);
