@@ -30,6 +30,7 @@ router.get("/", withAuth, async (req, res) => {
       //Serialize the data
       const post = serialize(postData);
 
+      //Render the dashboard if user is logged and display the dashboard item
       res.render("dashboard", { post, loggedIn: req.session.loggedIn });
 
       //Catch any error if any 
@@ -41,9 +42,23 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 //GET method to edit a post
-router.get("/edit", withAuth, (req, res) => {
+router.get("/edit/:id", withAuth, async (req, res) => {
 
-   res.render("editpost");
+    //Get the id of the post, and when click, it will let user edit post 
+    const editPost = await Post.findOne({
+
+        //Find the id with the correspond that is clicked
+        where: { id: req.params.id },
+
+        //Include the model to edit 
+        include: [{ model: User }, { model: Comment }]
+    });
+
+    //Serialize the data
+    const post = serialize(editPost);
+
+    //Render the editpost, if user is logged it will display the dashboard
+    res.render("editpost", { post, loggedIn: req.session.loggedIn });
 });
 
 //GET method to add a post
