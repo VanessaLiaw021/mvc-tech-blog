@@ -54,11 +54,11 @@ router.post("/", withAuth, async (req, res) => {
     //Try to run the code inside
     try {
 
-        //Update the post 
-        const createComment = await Comment.update({
-
-            //Look for the id that corresponds to the post and update it
-            where: { id: req.params.id }
+        //Create the post 
+        const createComment = await Comment.create({
+            comment_text: req.body.comment_text,
+            post_id: req.body.post_id,
+            user_id: req.session.user_id
         });
 
         //Return the data in a json file 
