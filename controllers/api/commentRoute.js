@@ -25,29 +25,6 @@ router.get("/", async (req, res) => {
     }
 });
 
-//GET method to get a single comments
-router.get("/:id", async (req, res) => {
-     
-    //Try to run the code inside
-    try {
-
-        //Get all the post
-        const specificComment = await Comment.findByPk(req.params.id, {
-            
-            include: [{ model: User}, { model: Post }]
-        });
-
-        //Return data in a json file
-        res.json(specificComment);
-
-        //Catch error if any
-    }   catch (err) {
-
-        //Display error if any
-        res.json(err);
-    };
-});
-
 //POST method to create a comment 
 router.post("/", withAuth, async (req, res) => {
 

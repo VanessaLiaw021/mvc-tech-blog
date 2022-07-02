@@ -61,7 +61,18 @@ router.get("/posts/:id", async (req, res) => {
         //Find the id when the specific post is clicked
         where: { id: req.params.id },
 
-        include: [{ model: User}, { model: Comment }]
+        //Attributes to include be used in Post
+        attribute: ["id", "post_title", "post_text"],
+
+        //Include the required model to display on the comment
+        include: [
+            { model: User, attributes: ["username"]}, 
+            { 
+                model: Comment,
+                attributes: ["id", "comment_text", "post_id", "user_id"],
+                include: [{ model: User, attributes: ["username"]}] 
+            }
+        ]
     });
 
     //Serialize the data

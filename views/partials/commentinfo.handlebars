@@ -5,9 +5,9 @@
             <h3>Comments</h3>
         </div>
         <div class="card-body">
-            {{#each post.comments}}
-            <p>Nice text</p>
-            <p class="posted">~ Posted by user on {{format_date comment.createdAt}}</p>
+            {{#each post.comment}}
+            <p>{{post.comment.comment_text}}</p>
+            <p class="posted">~ Posted by {{post.user.username}} on {{format_date post.comment.createdAt}}</p>
             <hr>
             {{/each}}
         </div>
