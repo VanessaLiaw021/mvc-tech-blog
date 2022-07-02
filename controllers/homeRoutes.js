@@ -1,7 +1,6 @@
 //Import required packages and files 
 const router = require("express").Router();
 const { Post, User, Comment } = require("../models");
-const withAuth = require("../utils/auth");
 
 //Function to serialize the data
 const serialize = (data) => JSON.parse(JSON.stringify(data));
@@ -66,7 +65,10 @@ router.get("/posts/:id", async (req, res) => {
 router.get("/signin", (req, res) => {
 
     //Check to see if the session if loggedIn
-    if (req.session.loggedIn) res.redirect("/dashboard");
+    if (req.session.loggedIn) {
+        res.redirect("/dashboard");
+        return;
+    };
 
     //Render to signin page 
     res.render("signin");
@@ -76,7 +78,10 @@ router.get("/signin", (req, res) => {
 router.get("/signup", (req, res) => {
 
     //Check to if the user signUp successfully, make it true
-    if (req.session.loggedIn) res.redirect("/dashboard");
+    if (req.session.loggedIn) {
+        res.redirect("/dashboard");
+        return;
+    };
 
     //Render to signup page
     res.render("signup");
