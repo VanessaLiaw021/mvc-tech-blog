@@ -8,8 +8,8 @@ const signUpFormHandler = async (event) => {
     try {
 
         //Get the value of the username and password 
-        const username = document.querySelector("#signup-username").value;
-        const password = document.querySelector("#signup-password").value;
+        const username = document.querySelector("#signup-username").value.trim();
+        const password = document.querySelector("#signup-password").value.trim();
 
         //Check to see if the username and password meet the requirement
         if (username && password) {
@@ -28,7 +28,7 @@ const signUpFormHandler = async (event) => {
             });
 
             //If the signin is correct, then the template will be re-rendered to dashboard
-            signUpResponse.ok ? document.location.replace("/dashboard") : alert("Failed to sign in. Try again");
+            signUpResponse.ok ? document.location.replace("/dashboard") : alert("Failed to sign up. Try again");
         };
 
         //Catch error if any

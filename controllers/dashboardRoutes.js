@@ -20,7 +20,7 @@ router.get("/", withAuth, async (req, res) => {
         where: { user_id: req.params.user_id },
 
         //Attributes to include in the edit post data
-        atttributes: ["id", "post_title", "post_text", "createdAt"],
+        atttributes: ["id", "post_title", "post_text"],
 
         //Include the model that need to be on the post
         include: [{model: Comment}, {model: User}]

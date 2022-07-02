@@ -58,6 +58,7 @@ router.get("/posts/:id", async (req, res) => {
     //Get the id of that post and display it on another page
     const singlePost = await Post.findOne({ 
 
+        //Find the id when the specific post is clicked
         where: { id: req.params.id },
 
         include: [{ model: User}, { model: Comment }]
