@@ -20,11 +20,17 @@ router.get("/", withAuth, async (req, res) => {
         where: { user_id: req.params.user_id },
 
         //Attributes to include in the edit post data
-        atttributes: ["id", "post_title", "post_text"],
+        atttributes: ["id", "post_title", "post_text", "createdAt"],
 
         //Include the model that need to be on the post
-        include: [{model: Comment}, {model: User}]
-
+        include: [
+          { 
+            model: Comment,
+            attributes: ["id", "comment_text", "post_id", "user_id", "createdAt"],
+            include: [{ model: User, attributes: ["username"]}]
+          }, 
+          { model: User, attributes: ["username"] }
+        ]
       });
 
       //Serialize the data
@@ -50,8 +56,15 @@ router.get("/edit/:id", withAuth, async (req, res) => {
         //Find the id with the correspond that is clicked
         where: { id: req.params.id },
 
-        //Include the model to edit 
-        include: [{ model: User }, { model: Comment }]
+        //Include the model to edit
+        include: [
+          { 
+            model: Comment,
+            attributes: ["id", "comment_text", "post_id", "user_id", "createdAt"],
+            include: [{ model: User, attributes: ["username"]}]
+          }, 
+          { model: User, attributes: ["username"]}
+        ]
     });
 
     //Serialize the data
