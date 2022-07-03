@@ -89,7 +89,7 @@ router.post("/signout", async (req, res) => {
   try {
 
       //If the session is logged in, destroy the sesssion and logout
-      req.session.loggedIn ? req.session.destroy(() => res.end()) : res.end();
+      if (req.session.loggedIn) req.session.destroy(() => res.end());
 
       //Catch any error if any
   }   catch (err) {
