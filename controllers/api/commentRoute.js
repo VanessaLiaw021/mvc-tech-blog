@@ -10,9 +10,7 @@ router.get("/", async (req, res) => {
     try {
 
         //Get all comments
-        const displayAllComments = await Comment.findAll({
-            include: [{model: User}, {model: Post }]
-        });
+        const displayAllComments = await Comment.findAll();
 
         //Return data in a json file
         res.json(displayAllComments);
