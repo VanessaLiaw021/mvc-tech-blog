@@ -1,5 +1,5 @@
 //Handle the sign in form
-const signInFormHandler = async function (event) {
+const signInFormHandler = async (event) => {
     
   //Prevent default action from happening
   event.preventDefault();
