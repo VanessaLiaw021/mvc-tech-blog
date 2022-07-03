@@ -7,7 +7,7 @@
         <div class="card-body">
             {{#each this}}
             <p>{{comment_text}}</p>
-            <p class="posted">~ Posted by {{user.username}} on {{format_date comment.createdAt}}</p>
+            <p class="posted">~ Posted by {{user.username}} on {{format_date createdAt}}</p>
             <hr>
             {{/each}}
         </div>
