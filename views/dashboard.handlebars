@@ -8,12 +8,6 @@
 
 <section class="blog-post d-flex flex-column m-5">
     {{#each posts as |post|}}
-    <div class="card m-4">
-        {{> postinfo post}}
-        <div class="card-header d-flex justify-content-between">
-            <a href="/dashboard/edit/{{post.id}}" class="edit"><h3>{{post.post_title}}</h3></a>
-            <p>Created on {{format_date post.createdAt}}</p>
-        </div>
-    </div>
+        {{> dashboardpost post}}
     {{/each}}
 </section>
