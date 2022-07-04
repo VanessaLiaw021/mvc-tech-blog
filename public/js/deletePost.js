@@ -25,4 +25,4 @@ const deletePostHandler = async (event) => {
 };
 
 //Grab the selector for button and call the function 
-document.querySelector("#delete-post").addEventListener("submit", deletePostHandler);
+document.querySelector("#delete-post").addEventListener("click", deletePostHandler);

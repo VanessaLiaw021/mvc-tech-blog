@@ -29,4 +29,4 @@ const addPostHandler = async (event) => {
 };
 
 //Grab the selector for button and call the function 
-document.querySelector("#update-post").addEventListener("submit", addPostHandler);
+document.querySelector("#update-post-form").addEventListener("submit", addPostHandler);
