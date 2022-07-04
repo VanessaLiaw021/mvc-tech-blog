@@ -5,8 +5,8 @@ const addPostHandler = async (event) => {
     event.preventDefault();
 
     //Get the value of the text and title of blog post
-    const post_title = document.querySelector("#add-title").value;
-    const post_text = document.querySelector("#add-text").value;
+    const post_title = document.querySelector("#update-title").value;
+    const post_text = document.querySelector("#update-text").value;
 
     //Giving us access to the URL
     const id = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
