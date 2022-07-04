@@ -75,9 +75,10 @@ input {
     font-size: 18px;
     background-color: lightsteelblue;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+    margin: 15px 0;
 }
 
-button:hover {
+.edit-button:hover {
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -97,10 +98,6 @@ textarea {
 
 .form-group a:hover {
     color: black;
-}
-
-.edit-button {
-    margin: 15px 0;
 }
 /* End Form Section */
 
