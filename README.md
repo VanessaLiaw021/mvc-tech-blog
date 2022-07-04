@@ -26,9 +26,15 @@ How to use this application
 
 This is the homepage when first viewing this application 
 
+![Home Page of the Tech Blog](./images/homepage.png)
+
 This is the dashboard if you have created an account and posted some blogs 
 
+![Dashboard Page when user signin](./images/dashboard.png)
+
 This is the comment page where user with an account can see other comment and use can also comment themselves
+
+![Individual Post with comments](./images/comments.png)
 
 ## Resources 
 
