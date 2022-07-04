@@ -30,6 +30,19 @@ nav a:hover {
     color: lightsteelblue;
     text-decoration: underline;
 }
+
+.signOut {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.signOut:hover {
+    color: lightsteelblue;
+    text-decoration: underline;
+}
 /* End Header Section */
 
 /* Style Card Section */
