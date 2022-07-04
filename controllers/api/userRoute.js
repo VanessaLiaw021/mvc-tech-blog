@@ -108,7 +108,7 @@ router.post("/signout", async (req, res) => {
     if (req.session.loggedIn) req.session.destroy(() => res.end());
 
     //Catch any error if any
-  }  catch (err) {
+  } catch (err) {
 
     //Display error if any
     res.json(err);

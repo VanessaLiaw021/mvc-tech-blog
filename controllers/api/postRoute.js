@@ -15,8 +15,6 @@ router.get("/", async (req, res) => {
             //Get the attributes from the post table 
             attributes: ["id", "post_text", "post_title"],  
 
-            //Order the post from most recent
-
             //Include the User and Comment model when getting all the post
             include: [
                 { 

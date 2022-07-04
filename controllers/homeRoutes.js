@@ -60,7 +60,7 @@ router.get("/posts/:id", async (req, res) => {
     res.render("singlepost", { post, loggedIn: req.session.loggedIn });
 });
 
-//Get the routes to sign in page
+//GET method to sign in to the page
 router.get("/signin", (req, res) => {
 
     //Check to see if the session if loggedIn
@@ -70,7 +70,7 @@ router.get("/signin", (req, res) => {
     res.render("signin");
 });
 
-//Get the routes to sign in page
+//GET methodto sign up 
 router.get("/signup", (req, res) => {
 
     //Check to if the user signUp successfully, make it true
