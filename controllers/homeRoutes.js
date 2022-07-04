@@ -64,7 +64,7 @@ router.get("/posts/:id", async (req, res) => {
 router.get("/signin", (req, res) => {
 
     //Check to see if the session if loggedIn
-    if (req.session.loggedIn) res.redirect("/dashboard");;
+    if (req.session.loggedIn) res.redirect("/dashboard");
 
     //Render to signin page 
     res.render("signin");
