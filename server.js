@@ -33,12 +33,12 @@ const hbs = exphbs.create({ helpers });
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
+//Express server to read form public directory
+app.use(express.static(path.join(__dirname, "public")));
+
 //Parse data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-//Express server to read form public directory
-app.use(express.static(path.join(__dirname, "public")));
 
 //Express server to read from routes directory
 app.use(routes);
