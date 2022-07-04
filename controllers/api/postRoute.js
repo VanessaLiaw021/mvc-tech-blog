@@ -27,7 +27,7 @@ router.get("/", async (req, res) => {
                 { 
                     //Comment model to include the user model, and attributes to include
                     model: Comment,
-                    attributes: ["id", "comment_text", "post_id", "user_id"],
+                    attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
                     include: [{ model: User, attributes: ["username"]}] 
                 }
             ]
@@ -51,12 +51,13 @@ router.get("/:id", async (req, res) => {
     try {
 
         //Get all the post
-        const allPost = await Post.findByPk(req.params.id, {
+        const allPost = await Post.findOne({
+            
+             //Look for the id that corresponds to the post
+            where: { id: req.params.id },
 
             //Attributes to include from the post table
-            //attributes: ["id", "post_text", "post_title"],  
-            
-            //Order the post from most recent
+            attributes: ["id", "post_text", "post_title", "created_at"],  
 
             //Include the User and Comment model when getting all the post
             include: [
@@ -68,6 +69,7 @@ router.get("/:id", async (req, res) => {
                 { 
                     //Comment model to include the user model, and attributes to include
                     model: Comment,
+                    attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
                     include: [{ model: User, attributes: ["username"]}] 
                 }
             ]

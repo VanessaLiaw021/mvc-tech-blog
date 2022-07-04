@@ -53,7 +53,7 @@ router.get("/edit/:id", withAuth, async (req, res) => {
     const editPost = await Post.findOne({
 
         //Find the id with the correspond that is clicked
-        where: { user_id: req.session.user_id },
+        where: { id: req.params.id },
 
         //Attributes to include in the edit post data
         atttributes: ["id", "post_title", "post_text", "created_at"],
