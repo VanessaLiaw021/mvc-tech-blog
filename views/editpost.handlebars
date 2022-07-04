@@ -14,13 +14,13 @@
                 <!--Edit Title Section-->
                 <div class="form-group d-flex flex-column m-2">
                     <label>Title: </label>
-                    <input type="text">
+                    <input type="text" placeholder="{{post.post_title}}">
                 </div>
 
                 <!--Edit Content Section-->
                 <div class="form-group d-flex flex-column m-2">
                     <label>Content: </label>
-                    <textarea class="text"></textarea>
+                    <textarea class="text" placeholder="{{post.post_text}}"></textarea>
                 </div>
 
                 <!--Update/Delete Button-->
@@ -34,3 +34,4 @@
 </section>
 
 <script src="/js/updatePost.js"></script>
+<script src="/js/deletePost.js"></script>
