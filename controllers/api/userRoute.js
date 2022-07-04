@@ -94,7 +94,7 @@ router.post("/signin", async (req, res) => {
    } catch (err) {
 
     //Display error if any
-    res.status(400).json(err);
+    res.json(err);
   };
 });
 
