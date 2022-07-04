@@ -64,10 +64,7 @@ router.get("/posts/:id", async (req, res) => {
 router.get("/signin", (req, res) => {
 
     //Check to see if the session if loggedIn
-    if (req.session.loggedIn) {
-        res.redirect("/dashboard");
-        return;
-    };
+    if (req.session.loggedIn) res.redirect("/dashboard");;
 
     //Render to signin page 
     res.render("signin");
@@ -77,10 +74,7 @@ router.get("/signin", (req, res) => {
 router.get("/signup", (req, res) => {
 
     //Check to if the user signUp successfully, make it true
-    if (req.session.loggedIn) {
-        res.redirect("/dashboard");
-        return;
-    };
+    if (req.session.loggedIn) res.redirect("/dashboard");
 
     //Render to signup page
     res.render("signup");
