@@ -118,7 +118,10 @@ router.put("/:id", withAuth, async (req, res) => {
 
         //Update the post 
         const updatePost = await Post.update({
-
+            post_title: req.body.post_title,
+            post_text: req.body.post_text,            
+        },
+        {
             //Look for the id that corresponds to the post and update it
             where: { id: req.params.id }
         });
@@ -144,7 +147,7 @@ router.delete("/:id", withAuth, async (req, res) => {
         const deletePost = await Post.destroy({
 
             //Look for the id that corresponds to the post and delete it
-            where: [{ id: req.params.id, user_id: req.session.user_id }]
+            where: [{ id: req.params.id }]
         });
 
         //Return the data in a json file

@@ -8,6 +8,9 @@ const addPostHandler = async (event) => {
     const post_title = document.querySelector("#add-title").value;
     const post_text = document.querySelector("#add-text").value;
 
+    //Giving us access to the URL
+    const id = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
+
     //Send fetch request to add a new post 
     const updateResponse = await fetch (`/api/posts/${id}`, {
         
@@ -26,4 +29,4 @@ const addPostHandler = async (event) => {
 };
 
 //Grab the selector for button and call the function 
-document.querySelector("#update-post-form").addEventListener("submit", addPostHandler);
+document.querySelector("#update-post").addEventListener("submit", addPostHandler);
