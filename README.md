@@ -2,6 +2,12 @@
 
 ## Table of Content 
 
+- [Description](#description)
+- [Usage](#usage)
+- [Visuals](#visuals)
+- [Resources](#resources)
+- [Authors and Acknowledgement](#authors-and-acknowledgement)
+
 ## Description 
 
 This is a MVC tech blog post application, where user are allow to post any blog post they desire. The user has the ability to update and delete post. 
@@ -16,8 +22,6 @@ How to use this application
 
 - Step 3: When the user created a blog post, it is display on the dashboard page. Once that done, the user can either update the post or delete the post. 
 
-## Installation
-
 ## Visuals
 
 This is the homepage when first viewing this application 
@@ -28,9 +32,9 @@ This is the comment page where user with an account can see other comment and us
 
 ## Resources 
 
-- [GitHub Repo]()
+- [GitHub Repo](https://github.com/VanessaLiaw021/mvc-tech-blog)
 
-- [Live Site]()
+- [Live Site](https://beautiful-kings-canyon-97847.herokuapp.com/)
 
 ## Authors and Acknowledgement
 

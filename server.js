@@ -15,7 +15,9 @@ const PORT = process.env.PORT || 3001;
 //Set up session with cookies 
 const sess = {
   secret: 'Super secret secret',
-  cookie: { maxAge: 86400 },
+
+  //Set the time to expire at 10 minutes
+  cookie: { maxAge: 10 * 60 * 1000 },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({ db: sequelize }),
