@@ -33,10 +33,10 @@ router.get("/", withAuth, async (req, res) => {
       });
 
       //Serialize the data
-      const post = serialize(postData);
+      const posts = serialize(postData);
 
       //Render the dashboard if user is logged and display the dashboard item
-      res.render("dashboard", { post, loggedIn: req.session.loggedIn });
+      res.render("dashboard", { posts, loggedIn: req.session.loggedIn });
 
       //Catch any error if any 
     } catch (err) {

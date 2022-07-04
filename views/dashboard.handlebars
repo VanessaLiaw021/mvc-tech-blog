@@ -7,11 +7,11 @@
 <hr class="line">
 
 <section class="blog-post d-flex flex-column m-5">
-    {{#each posts as |post|}}
+    {{#each posts}}
     <div class="card m-4">
         <div class="card-header d-flex justify-content-between">
-            <a href="/dashboard/edit/{{post.id}}" class="edit"><h3>{{posts.post_title}}</h3></a>
-            <p>{{format_date post.createdAt}}</p>
+            <a href="/dashboard/edit/{{post.id}}" class="edit"><h3>{{post_title}}</h3></a>
+            <p>{{format_date createdAt}}</p>
         </div>
     </div>
     {{/each}}
