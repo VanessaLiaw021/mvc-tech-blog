@@ -13,7 +13,7 @@ router.get("/", withAuth, async (req, res) => {
     try {
 
       //Find all the post the user post and display them
-      const postData = await Post.findAll( {
+      const postData = await Post.findAll({
 
         //Find the user post based on the user login id 
         where: { user_id: req.session.user_id },
