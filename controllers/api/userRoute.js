@@ -60,7 +60,7 @@ router.post("/", async (req, res) => {
 });
 
 //POST method to login the user into the applicatin
-router.post("/signIn", async (req, res) => {
+router.post("/sign-in", async (req, res) => {
 
   //Try to run the code inside
   try {
@@ -99,7 +99,7 @@ router.post("/signIn", async (req, res) => {
 });
 
 //POST method to logout user
-router.post("/signOut", async (req, res) => {
+router.post("/sign-out", async (req, res) => {
 
   //Try to run the code iniside
   try {

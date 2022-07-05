@@ -57,27 +57,27 @@ router.get("/posts/:id", async (req, res) => {
     const post = serialize(singlePost);
 
     //Render to the singlepost 
-    res.render("singlePost", { post, loggedIn: req.session.loggedIn });
+    res.render("single-post", { post, loggedIn: req.session.loggedIn });
 });
 
 //GET method to sign in to the page
-router.get("/signIn", (req, res) => {
+router.get("/sign-in", (req, res) => {
 
     //Check to see if the session if loggedIn
     if (req.session.loggedIn) res.redirect("/dashboard");
 
     //Render to signin page 
-    res.render("signIn");
+    res.render("sign-in");
 });
 
 //GET methodto sign up 
-router.get("/signUp", (req, res) => {
+router.get("/sign-up", (req, res) => {
 
     //Check to if the user signUp successfully, make it true
     if (req.session.loggedIn) res.redirect("/dashboard");
 
     //Render to signup page
-    res.render("signUp");
+    res.render("sign-up");
 });
 
 //Export router
