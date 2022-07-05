@@ -73,14 +73,14 @@ router.get("/edit/:id", withAuth, async (req, res) => {
     const post = serialize(editPost);
 
     //Render the editpost, if user is logged it will display the dashboard
-    res.render("editpost", { post, loggedIn: req.session.loggedIn });
+    res.render("updatePost", { post, loggedIn: req.session.loggedIn });
 });
 
 //GET method to add a post
 router.get("/addpost", withAuth, (req, res) => {
 
   //Render the add post when user sign in to dashboard
-  res.render("addpost", { loggedIn: req.session.loggedIn});
+  res.render("addPost", { loggedIn: req.session.loggedIn});
 })
 
 //Export router
