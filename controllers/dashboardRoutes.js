@@ -77,7 +77,7 @@ router.get("/edit/:id", withAuth, async (req, res) => {
 });
 
 //GET method to add a post
-router.get("/addpost", withAuth, (req, res) => {
+router.get("/addPost", withAuth, (req, res) => {
 
   //Render the add post when user sign in to dashboard
   res.render("addPost", { loggedIn: req.session.loggedIn});
