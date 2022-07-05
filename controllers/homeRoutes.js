@@ -67,7 +67,7 @@ router.get("/signin", (req, res) => {
     if (req.session.loggedIn) res.redirect("/dashboard");
 
     //Render to signin page 
-    res.render("signIn");
+    res.render("signin");
 });
 
 //GET methodto sign up 
@@ -77,7 +77,7 @@ router.get("/signup", (req, res) => {
     if (req.session.loggedIn) res.redirect("/dashboard");
 
     //Render to signup page
-    res.render("signUp");
+    res.render("signup");
 });
 
 //Export router
