@@ -61,7 +61,7 @@ router.get("/posts/:id", async (req, res) => {
 });
 
 //GET method to sign in to the page
-router.get("/signin", (req, res) => {
+router.get("/signIn", (req, res) => {
 
     //Check to see if the session if loggedIn
     if (req.session.loggedIn) res.redirect("/dashboard");
@@ -71,7 +71,7 @@ router.get("/signin", (req, res) => {
 });
 
 //GET methodto sign up 
-router.get("/signup", (req, res) => {
+router.get("/signUp", (req, res) => {
 
     //Check to if the user signUp successfully, make it true
     if (req.session.loggedIn) res.redirect("/dashboard");
