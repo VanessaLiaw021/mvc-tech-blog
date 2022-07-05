@@ -2,7 +2,7 @@
 const signOutFormHandler = async () => {
     
     //Read the fetch request 
-    const signOutResponse = await fetch("/api/users/signOut", {
+    const signOutResponse = await fetch("/api/users/signout", {
 
         //Read the method 
         method: "POST",

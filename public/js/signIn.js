@@ -12,7 +12,7 @@ const signInFormHandler = async (event) => {
   if (username && password) {
 
     //Read the fetch request
-    const response = await fetch("/api/users/signIn", {
+    const response = await fetch("/api/users/signin", {
 
         //Read from POST method
         method: "POST",
